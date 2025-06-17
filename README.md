@@ -30,28 +30,54 @@ Este repositório contém exercícios práticos de automação de testes realiza
 
 ## 🚀 Como executar os testes
 
-### 1. Clonar o repositório
+## ✅ Pré-requisitos
+
+Este projeto requer o **Node.js** instalado na sua máquina. Consulte o arquivo `.node-version` para saber a versão exata necessária.
+
+Também é necessário o **Yarn Classic**. Após instalar o Node.js, execute o seguinte comando para instalar o módulo `yarn` (versão Classic - 1.x) globalmente:
 
 ```bash
-git clone https://github.com/iagotm/qa-curso-praticas.git
-cd qa-curso-praticas
+npm install yarn@latest -g
+```
+🔍 Se você tiver o recurso experimental Corepack do Node.js habilitado, pode pular o passo acima, pois o projeto RWA já está configurado para usar o Yarn Classic localmente via Corepack.
+
+#### 🚫 Yarn Modern
+Este projeto não é compatível com o Yarn Modern (versão 2 ou superior).
+
+### 📦 Instalação
+Para clonar o repositório e instalar as dependências, execute os seguintes comandos:
+
+```bash
+git clone https://github.com/cypress-io/cypress-realworld-app
+cd cypress-realworld-app
+yarn
 ```
 
-### 2. Instalar dependências
-Certifique-se de ter o Node.js instalado. Depois, rode:
-```bash
-npm install
-```
+#### 💻 Usuários de Mac com chip M-series devem adicionar a variável `PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true` antes da instalação:
 
-### 3. Rodar o Cypress
-Interface visual:
 ```bash
-npx cypress open
-```
-Linha de comando:
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn install
+````
+
+### ▶️ Executar a aplicação
+
 ```bash
-npx cypress run
+yarn dev
+````
+🚩 Nota importante:
+
+A aplicação será executada por padrão nas portas 3000 (frontend) e 3001 (API backend).
+Verifique se nenhuma outra aplicação ou serviço está utilizando essas portas.
+
+Caso deseje alterar as portas padrão, modifique as variáveis PORT e VITE_BACKEND_PORT no arquivo .env.
+⚠️ Atenção: Não versionar essas mudanças no Git, pois os ambientes de CI esperam que o app rode nas portas padrão.
+
+### 🧪 Iniciar o Cypress
+```bash
+yarn cypress:open
 ```
+Com isso, você terá o projeto rodando localmente e poderá iniciar os testes automatizados com Cypress.
+
 ### 🛠️ Tecnologias Utilizadas
 Cypress.io
 
